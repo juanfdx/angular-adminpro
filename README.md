@@ -5,6 +5,9 @@ This is a portfolio project built using the Angular framework, along with HTML, 
 
 The application connects to a backend built with Node.js and Express, and it uses MongoDB as the database to store and manage data. This full-stack setup allows for efficient handling of CRUD operations, secure data transactions, and seamless integration between the client and server.
 
+Backend GitHub Repository:<br />
+🔗 [Medics & Hospitals Manager – Backend API](https://github.com/juanfdx/node-adminproV2)
+
 ## 🧐 Author 
 
 Juan Fernandez Diaz
