@@ -1,46 +1,23 @@
 ## 🧾 Description
+Medics & Hospitals Manager – Angular CMS Project
 
-Small angular framework project for my portfolio. I have made a CMS (Content Management System)  website using frontend technologies. This project is a small Medics & Hospitals Manager.
+This is a portfolio project built using the Angular framework, along with HTML, CSS, Sass, and JavaScript. It serves as a Content Management System (CMS) designed specifically for managing information related to medical professionals and hospitals.
+
+The application connects to a backend built with Node.js and Express, and it uses MongoDB as the database to store and manage data. This full-stack setup allows for efficient handling of CRUD operations, secure data transactions, and seamless integration between the client and server.
 
 ## 🧐 Author 
 
 Juan Fernandez Diaz
 
-- [Homepage](https://www.juan-fdez.com/home)
-- [LinkedIn](https://www.linkedin.com/in/juan-fdez-com/)
-- [Portfolio](https://www.juan-fdez.com/portfolio)
+- [Homepage](https://www.juanfdx.com)
+- [LinkedIn](https://www.linkedin.com/in/juanfdx-com/)
+- [Portfolio](https://www.juanfdx.com/portfolio)
+
 
 ## 🚀 Demo
 
-Try the web site:  [medics-hospitals-manager](https://node-adminpro-backend.herokuapp.com/login)
-
-## 🛠️ Installation Steps
-
-1. Clone the repository
-
-```bash
-https://github.com/juanfdx/angular-adminPro.git
-```
-
-2. Change the working directory
-
-```bash
-cd angular-adminPro-main
-```
-
-3. Install dependencies
-
-```bash
-npm install
-```
-
-4. Run the app
-
-```bash
-ng serve -o
-```
-
-🌟 You are all set!
+Try the web site:<br />
+🔗 [medics-hospitals-manager](https://api-node-adminpro-ef5039e6e1c1.herokuapp.com/login)
 
 ## 💻 Built with
 
@@ -52,8 +29,8 @@ ng serve -o
   <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/44/000000/external-angular-a-typescript-based-open-source-web-application-framework-logo-color-tal-revivo.png"/>
 </p>
 
-## ☎ Get In Touch
+## ☎ Contact me
 
-Contact me:  [juanfd@juan-fdez.com](https://www.juan-fdez.com/contact)
+Email:&nbsp; [juanfdx@ideastradeweb.com](https://www.juanfdx.com/contact)
 &nbsp;<br />
 &nbsp;<br />
