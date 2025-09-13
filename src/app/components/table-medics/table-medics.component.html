@@ -1,0 +1,84 @@
+<div *ngIf="!loading" class="table">
+  
+  <div class="table__card">
+    <div class="table__card-body">
+
+      <div class="table__header-content">
+        <div class="table__header-text">
+          <h4 class="table__h4">{{ 'Medics' | translate }} ({{total}})</h4>
+          <h6 class="table__h6">{{ 'Registered Medics' | translate }}</h6>
+        </div>
+        <a class="table__header-btn"
+                routerLink="/dashboard/medic/new">
+            {{ 'Create medic' | translate }}
+        </a>
+      </div>
+
+      <table class="table__table-medics">
+        <thead>
+          <tr>
+            <th class="table__th table__th--center">{{ 'Photo' | translate }}</th>
+            <th class="table__th">{{ 'Name' | translate }}</th>
+     
+            <th class="table__th table__th--center">{{ 'Actions' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let medic of medics">
+            <td class="table__td">
+              <img class="table__img" 
+                   [src]="medic.image" 
+                   alt="Medic photo"
+                   (click)="openModal(medic)">
+            </td>
+
+            <td class="table__td">{{ medic.name | titlecase}} {{ medic.lastName | titlecase }}</td>
+
+            <td class="table__td">
+
+              <div class="table__actions-wrapper">
+                <a class="table__btn-delete"
+                    [routerLink]="['/dashboard/medic', medic._id]">
+                    <svg class="table__edit-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M1.438 16.872l-1.438 7.128 7.127-1.438 12.642-12.64-5.69-5.69-12.641 12.64zm2.271 2.253l-.85-.849 11.141-11.125.849.849-11.14 11.125zm20.291-13.436l-2.817 2.819-5.69-5.691 2.816-2.817 5.691 5.689z"/></svg>
+                </a>
+
+                <a class="table__btn-delete"
+                    (click)="deleteMedic(medic)">
+                  <svg class="table__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
+                  </svg>
+                </a>
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <!-- pagination -->
+      <div *ngIf="term.length === 0 " class="table__buttons-container">
+
+        <div class="table__page-buttons">
+          <button class="table__page-btn"
+                  (click)="pagination(-5)">
+            {{ 'Prev' | translate }}
+          </button>
+          <button class="table__page-btn"
+                  (click)="pagination(5)">
+            {{ 'Next' | translate }}
+          </button>
+        </div>
+
+        <div class="table__page-indicator">
+          <span class="table__page-number">{{currentPage}} - {{setTotalPages()}}</span>
+        </div>
+
+      </div>
+      <!-- end pagination -->
+
+    </div>
+  </div>
+  
+</div>

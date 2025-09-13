@@ -1,0 +1,93 @@
+@import 'mixins';
+
+/* ----- ACCOUNT SETTINGS ----- */
+
+.settings {
+  width: 100%;
+  color: #67757c;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+  
+  &__card {
+    padding: 0;
+
+    @media (min-width: 768px) {
+      padding-right:  15px;
+    }
+  }
+  
+  &__card-body {
+    padding: 25px;
+    background-color: #ffffff;
+  }
+  
+  &__h3 {
+    line-height: 30px;
+    font-size: 21px;
+    margin-bottom: 10px;
+  }
+
+  &__panel {
+    margin: 20px 0;
+    padding-left: 40px;
+  }
+
+  &__h4 {
+    font-size: 20px;
+
+    &--oscuro {
+      margin-top: 30px;
+    }
+  }
+
+  &__ul {
+
+    @include flex(row, wrap, flex-start, center)
+  }
+
+  &__li {
+   width: 60px;
+   height: 60px;
+  }
+
+  &__a {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+
+    &--oscuro {
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20%;
+        height: 100%;
+        background-color: var(--color-sd-oscuro);
+      }
+    }
+  }
+
+  &__svg-checked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,97 @@
+<div *ngIf="!loading" class="table">
+  
+  <div class="table__card">
+    <div class="table__card-body">
+
+      <h4 class="table__h4">{{'Users' | translate}} ({{total}})</h4>
+      <h6 class="table__h6">{{'Registered users' | translate}}</h6>
+
+      <table class="table__table-users">
+        <thead>
+          <tr>
+            <th class="table__th table__th--center">{{ 'Photo' | translate }}</th>
+            <th class="table__th">{{ 'Email' | translate }}</th>
+            <th class="table__th">{{ 'Name' | translate }}</th>
+            <th class="table__th">{{ 'Role' | translate }}</th>
+            <th class="table__th table__th--center">{{ 'Status' | translate }}</th>
+            <th class="table__th table__th--center">{{ 'Actions' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let user of users">
+            <td class="table__td">
+              <img class="table__img" 
+                   [src]="user.image" 
+                   alt="User photo"
+                   (click)="openModal(user)">
+            </td>
+
+            <td class="table__td">{{user.email}}</td>
+
+            <td class="table__td">{{ user.name | titlecase }} {{ user.lastName | titlecase }}</td>
+
+            <td class="table__td">
+              <div class="table__select-wrapper">
+                <select class="table__select"
+                        [(ngModel)]="user.role"
+                        (change)="changeUserRole(user)"
+                        [disabled]="user.email === 'juanfdx@email.com'">
+                  <option value="ADMIN_ROLE">{{ 'admin' | translate }}</option>
+                  <option value="USER_ROLE">{{ 'user' | translate }}</option>
+                </select>
+                <span class="table__span">&#8249;</span>
+              </div>
+            </td>
+
+            <td class="table__td">
+              <button *ngIf="user.status === 'active'"  
+                      class="table__status"
+                      (click)="changeUserStatus(user)"
+                      [disabled]="user.email === 'juanfdx@email.com'">
+                      {{ user.status | translate}}
+              </button>
+              <button *ngIf="user.status !== 'active'"  
+                      class="table__status table__status--inactive"
+                      (click)="changeUserStatus(user)"
+                      [disabled]="user.email === 'juanfdx@email.com'">
+                      {{ user.status! | translate}}
+              </button>
+            </td>
+
+            <td class="table__td">
+              <a class="table__btn-delete"
+                 (click)="deleteUser(user)">
+                <svg class="table__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <!-- pagination -->
+      <div *ngIf="term.length === 0 " class="table__buttons-container">
+
+        <div class="table__page-buttons">
+          <button class="table__page-btn"
+                  (click)="pagination(-5)">
+            {{ 'Prev' | translate }}
+          </button>
+          <button class="table__page-btn"
+                  (click)="pagination(5)">
+            {{ 'Next' | translate }}
+          </button>
+        </div>
+
+        <div class="table__page-indicator">
+          <span class="table__page-number">{{currentPage}} - {{setTotalPages()}}</span>
+        </div>
+
+      </div>
+      <!-- end pagination -->
+
+    </div>
+  </div>
+  
+</div>

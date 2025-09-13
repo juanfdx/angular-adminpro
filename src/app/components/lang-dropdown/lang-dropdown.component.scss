@@ -1,0 +1,52 @@
+@import 'mixins';
+
+/* ----- LANGUAGES DROPDOWN ----- */
+
+.lang {
+  position: absolute;
+  top: 100%;
+  right: 70px;
+  width: 198px;
+  min-width: 198px;
+  padding: 10px 0;
+  margin: 2.5px 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  border: 1px solid rgba(0,0,0,.15);
+  box-shadow: 0 3px 12px rgb(0 0 0 / 5%);
+  border-radius: 0.25rem;
+  background-color: #fff;
+  cursor: default;
+  z-index: 10;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 0px;
+    right: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &__link {
+    padding: 7px 1.5rem;
+    cursor: pointer;
+
+    @include flex(row, nowrap, flex-start, center);
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+
+  &__img {
+    width: 26.66px;
+    min-width: 26.66px;
+    margin-right: 10px;
+  }
+}
+
+// animted css
+.animate__animated.animate__fadeIn {
+  --animate-duration: .3s;
+}

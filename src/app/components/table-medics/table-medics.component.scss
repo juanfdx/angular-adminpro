@@ -1,0 +1,166 @@
+@import 'mixins';
+
+/* ----- MEDICS TABLE ----- */
+
+.table {
+  width: 100%;
+
+  &__card {
+    background-color: #FFFFFF;
+  }
+
+  &__card-body {
+    padding: 25px;
+    overflow-x: auto;
+  }
+
+  &__header-content {
+    @include flex(row, nowrap, space-between, flex-start);
+  }
+
+  &__h4 {
+    margin-bottom: 7px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #455a64;
+  }
+
+  &__h6 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #99abb4;
+  }
+
+  &__header-btn {
+    padding: 7px 12px;
+    font-size: 20px;
+    line-height: 1.25;
+    color: #FFFFFF;
+    background: #745af2;
+    border: 1px solid #745af2;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+
+    &:hover {
+      box-shadow: 0 14px 26px -12px rgb(116 96 238 / 42%), 0 4px 23px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(116 96 238 / 20%);
+    }
+  }
+
+  /* ----- TABLE ----- */
+
+  &__table-medics {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+    color: #67757c;
+  }
+
+  &__th {
+    padding: 15px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__td {
+    border: 1px solid #e9ecef;
+    padding: 6px 15px;
+    font-weight: 300;
+    vertical-align: middle;
+
+    &:first-child {
+      width: 100px;
+      min-width: 100px;
+    }
+
+    &:nth-child(2) {
+      white-space: nowrap;
+    }
+
+    &:nth-child(3) {
+      width: 120px;
+    }
+  }
+
+  &__img {
+    width: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: fill;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+
+  &__actions-wrapper {
+    @include flex(row, nowrap, center, center);
+    gap: 5px;
+  }
+
+  &__btn-delete {
+    width: fit-content;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  &__edit-svg {
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    color: #2f3d4a;
+  }
+
+  &__svg {
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+    color: #F25351;
+  }
+
+  /* ----- PAGINATION ----- */
+  
+  &__buttons-container {
+    width: 100%;
+    @include flex(row, nowrap, space-between, flex-end);
+  }
+  
+  &__page-buttons {
+    @include flex(row, nowrap, flex-start, center);
+    gap: 10px;
+  }
+
+  &__page-btn {
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 20px;
+    color: #67757c;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgb(169 169 169 / 14%), 0 3px 1px -2px rgb(169 169 169 / 20%), 0 1px 5px 0 rgb(169 169 169 / 12%);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      box-shadow: 0 14px 26px -12px rgb(169 169 169 / 42%), 0 4px 23px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(169 169 169 / 20%);
+      color: #ffffff;
+      background-color: #727b84;
+      border-color: #6c757d;
+    }
+  }
+
+  &__page-number {
+    padding: 0 15px;
+    color: #67757c;
+    pointer-events: none;
+  }
+
+}

@@ -1,0 +1,212 @@
+@import 'mixins';
+
+/* ----- USERS TABLE ----- */
+
+.table {
+  width: 100%;
+
+  &__card {
+    background-color: #FFFFFF;
+  }
+
+  &__card-body {
+    padding: 25px;
+    overflow-x: auto;
+  }
+
+  &__h4 {
+    margin-bottom: 7px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #455a64;
+  }
+
+  &__h6 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 16px;
+    color: #99abb4;
+  }
+
+  /* ----- TABLE ----- */
+
+  &__table-users {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+    color: #67757c;
+  }
+
+  &__th {
+    padding: 15px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__td {
+    border: 1px solid #e9ecef;
+    padding: 6px 15px;
+    font-weight: 300;
+    vertical-align: middle;
+
+    &:first-child {
+      width: 100px;
+      min-width: 100px;
+    }
+
+    &:nth-child(2) {
+      white-space: nowrap;
+    }
+
+    &:nth-child(4) {
+      width: 140px;
+    }
+
+    &:nth-child(5) {
+      width: 105px;
+    }
+
+    &:nth-child(6) {
+      width: 110px;
+    }
+  }
+
+  &__img {
+    width: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    object-fit: fill;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+
+  &__select-wrapper {
+    position: relative;
+  }
+
+  &__select {
+    width: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 12px;
+    color: #495057;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 5px;
+    background-color: transparent;
+    transition: all .2s ease;
+
+    &:focus {
+      border-color: #80bdff;
+    }
+  }
+
+  &__span {
+    position: absolute;
+    top: 9px;
+    right: 11px;
+    width: fit-content;
+    font-size: 25px;
+    font-weight: 500;
+    transform: rotate(270deg);
+    pointer-events: none;
+  }
+
+  &__status {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff;
+    border: 1px solid #06d79c;
+    background-color: #06d79c;
+    border-radius: 3px;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #13c391;
+    }
+
+    &--inactive {
+      background-color: #F25351;
+      border: #F25351;
+
+      &:hover {
+        background-color: #d7403d;
+      }
+    }
+  }
+
+  &__btn-delete {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  &__svg {
+    width: 15px;
+    min-width: 15px;
+    height: 15px;
+    color: #F25351;
+  }
+
+  /* ----- PAGINATION ----- */
+
+  &__buttons-container {
+    width: 100%;
+    @include flex(row, nowrap, space-between, flex-end);
+  }
+  
+  &__page-buttons {
+    @include flex(row, nowrap, flex-start, center);
+    gap: 10px;
+  }
+
+  &__page-btn {
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 20px;
+    color: #67757c;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgb(169 169 169 / 14%), 0 3px 1px -2px rgb(169 169 169 / 20%), 0 1px 5px 0 rgb(169 169 169 / 12%);
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      box-shadow: 0 14px 26px -12px rgb(169 169 169 / 42%), 0 4px 23px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(169 169 169 / 20%);
+      color: #ffffff;
+      background-color: #727b84;
+      border-color: #6c757d;
+    }
+  }
+
+  &__page-number {
+    padding: 0 15px;
+    color: #67757c;
+    pointer-events: none;
+  }
+}
+
+/* ----- IF BUTTON DISABLED ----- */
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events: none;
+}

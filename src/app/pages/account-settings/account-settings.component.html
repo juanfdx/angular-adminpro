@@ -1,0 +1,25 @@
+<div class="settings">
+  <div class="settings__card">
+
+    <div class="settings__card-body">
+      <h3 class="settings__h3">{{ 'Select theme' | translate }}</h3>
+
+      <div class="settings__panel">
+
+        <ul class="settings__ul">
+          <li *ngFor="let theme of darkThemes; let i=index" 
+              class="settings__li">
+              <a (click)="setTheme(theme)" 
+                class="settings__a settings__a--oscuro" 
+                 [style]="{'backgroundColor' : theme.header}">
+
+                 <svg xmlns="http://www.w3.org/2000/svg" class="settings__svg-checked" [ngClass]="{'settings__svg-checked--active': appTheme === theme.color}" width="24" height="24" viewBox="0 0 24 24"><path d="M9 22l-10-10.598 2.798-2.859 7.149 7.473 13.144-14.016 2.909 2.806z"/></svg>
+              </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+</div>

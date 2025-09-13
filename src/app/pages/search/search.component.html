@@ -1,0 +1,124 @@
+<div class="search animate__animated animate__fadeIn">
+
+  <div class="search__card">
+    <div class="search__card-body">
+      <h4 class="search__h4">Usuarios</h4>
+      
+      <!-- info alert -->
+      <div *ngIf="users.length === 0" 
+           class="search__alert animate__animated animate__fadeIn animate__faster">
+        <div class="search__info">
+          <svg class="search__info-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+          <h3 class="search__info-h3">Informacion</h3>
+        </div>
+        <h4 class="search__info-h4"> No hay usuarios con ese nombre.</h4>
+      </div>
+      <!-- end info alert -->
+    
+      <table *ngIf="users.length > 0" class="table">
+        <thead class="table__thead-users">
+          <tr>
+            <th class="table__th">Photo</th>
+            <th class="table__th">Name</th>
+          </tr>
+        </thead>
+        <div class="table__line"></div>
+        <tbody>
+          <tr *ngFor="let user of users" 
+              class="animate__animated animate__fadeIn animate__faster">
+            <td class="table__td">
+              <img class="table__img" [src]="user.image | image : 'users'" alt="User photo">
+            </td>
+            <td class="table__td">{{user.name}} {{user.lastName}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="search__card">
+    <div class="search__card-body">
+      <h4 class="search__h4">Medicos</h4>
+
+      <!-- info alert -->
+      <div *ngIf="medics.length === 0" 
+           class="search__alert animate__animated animate__fadeIn animate__faster">
+        <div class="search__info">
+          <svg class="search__info-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+          <h3 class="search__info-h3">Informacion</h3>
+        </div>
+        <h4 class="search__info-h4"> No hay médicos con ese nombre.</h4>
+      </div>
+      <!-- end info alert -->
+
+      <table *ngIf="medics.length > 0" class="table">
+        <thead class="table__thead-medics">
+          <tr>
+            <th class="table__th">Photo</th>
+            <th class="table__th">Name</th>
+          </tr>
+        </thead>
+        <div class="table__line"></div>
+        <tbody>
+          
+          <tr *ngFor="let medic of medics"
+              class="table__tr-medic animate__animated animate__fadeIn animate__faster"
+              (click)="openMedic(medic)">
+
+            <td class="table__td">
+              <img class="table__img" [src]="medic.image | image : 'medics'" alt="Medic Photo">
+            </td>
+            <td class="table__td">{{medic.name}} {{medic.lastName}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="search__card">
+    <div class="search__card-body">
+      <h4 class="search__h4">Hospitales</h4>
+
+      <!-- info alert -->
+      <div *ngIf="hospitals.length === 0" 
+           class="search__alert animate__animated animate__fadeIn animate__faster">
+        <div class="search__info">
+          <svg class="search__info-svg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+          <h3 class="search__info-h3">Informacion</h3>
+        </div>
+        <h4 class="search__info-h4"> No hay hospitales con ese término.</h4>
+      </div>
+      <!-- end info alert -->
+
+      <table *ngIf="hospitals.length > 0" class="table">
+        <thead class="table__thead-hospitals">
+          <tr>
+            <th class="table__th table__th--center">Photo</th>
+            <th class="table__th">Name</th>
+          </tr>
+        </thead>
+        <div class="table__line"></div>
+        <tbody>
+          <tr *ngFor="let hospital of hospitals"
+              class="animate__animated animate__fadeIn animate__faster">
+            <td class="table__td">
+              <img class="table__img" [src]="hospital.image | image : 'hospitals'" alt="">
+            </td>
+            <td class="table__td">{{hospital.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+</div>

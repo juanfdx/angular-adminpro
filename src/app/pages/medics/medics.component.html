@@ -1,0 +1,9 @@
+
+<app-search-maint [page]="page"></app-search-maint>
+
+<app-loading-maint [loading]="loading">
+</app-loading-maint>
+
+<app-table-medics [loading]="loading"
+                  (loaded)="loaded($event)">
+</app-table-medics>

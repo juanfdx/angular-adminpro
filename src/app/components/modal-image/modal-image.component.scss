@@ -1,0 +1,127 @@
+@import 'mixins';
+
+/* ----- USERS TABLE ----- */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  display: none;
+
+  &--active {
+    display: block;
+  }
+
+  &__content {
+    width: 500px;
+    max-width: 500px;
+    min-height: 500px;
+    margin: 30px auto;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 0.3rem;
+    color: #67757c;
+  }
+
+  &__header {
+    padding: 15px;
+    font-size: 18px;
+    border-bottom: 1px solid #e9ecef;
+
+    @include flex(row, nowrap, space-between, center);
+  }
+
+  &__btn-close {
+    padding: 5px 2px;
+    cursor: pointer;
+  }
+
+  &__svg-close {
+    width: 12px;
+    min-width: 12px;
+    height: 12px;
+
+    &:hover {
+      color: #000000;
+      opacity: .75;
+    }
+  }
+
+  &__body {
+    padding: 15px;
+    overflow: hidden;
+  }
+
+  &__h3 {
+    font-size: 21px;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+
+  &__img-container {
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 30px;
+
+    @include flex(row, nowrap, center, center);
+  }
+
+  &__img {
+    width: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+  }
+
+  &__input-file {
+    margin-bottom: 37px;
+  }
+
+  &__footer {
+    padding: 15px;
+    border-top: 1px solid #e9ecef;
+
+    @include flex(row, nowrap, flex-end, center);
+    gap: 10px;
+  }
+
+  &__btn {
+    padding: 7.5px 12px;
+    color: #000000;
+    background-color: #F0F0F0;
+    border: 1px solid #808080;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &--update {
+      color: #FFFFFF;
+      background: #745af2;
+      border: 1px solid #745af2;
+      transition: 0.2s ease-in;
+
+      &:hover {
+        box-shadow: 0 14px 26px -12px rgb(116 96 238 / 42%), 0 4px 23px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(116 96 238 / 20%);
+      }
+    }
+  }
+}
+
+/* ----- IF BUTTON DISABLED ----- */
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+button:disabled:hover,
+button[disabled]:hover {
+  box-shadow: none;
+  border: 1px solid #999999;
+}

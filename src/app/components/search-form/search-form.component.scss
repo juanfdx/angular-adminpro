@@ -1,0 +1,39 @@
+@import 'mixins';
+
+/* ----- SEARCH ----- */
+
+.search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #67757c;
+  background-color: #FFFFFF;
+
+  @media (max-width: 575px) {
+    display: none;
+  }
+
+  &__input {
+    padding: 25.5px 40px 25.5px 20px;
+    font-size: 17px;
+    width: calc(100% - 60px);
+    border: none;
+    outline: none;
+  }
+
+  &__close-link {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  &__close-svg-search {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+  }
+}

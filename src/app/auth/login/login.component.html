@@ -1,0 +1,90 @@
+
+<div class="login">
+  
+  <div class="login__card">
+    <div class="login__card-body">
+
+      <form class="login__login-form" 
+            (submit)="login()" 
+            [formGroup]="loginForm" 
+            autocomplete="off">
+
+        <a class="login__logo">
+          <img class="login__logo-img" 
+               [src]="'/assets/images/icons/healthcare-icon.png'" 
+               [alt]="'Admin logo'">
+
+          <img class="login__logo-text" [src]="'/assets/images/logo/logo-text.png'" 
+          alt="adminPro">
+        </a>
+
+        <div class="login__form-group">
+          <div class="login__input-group">
+            <input class="login__input" 
+                   type="email" 
+                   [placeholder]=" 'Email' |translate "
+                   formControlName="email">
+
+            <p *ngIf="isRequired('email')" class="login__input-error">{{'email required' | translate}}</p>
+            <p *ngIf="isEmail()" class="login__input-error">{{'valid email required' | translate}}</p>
+          
+          </div>
+        </div>
+
+        <div class="login__form-group">
+          <div class="login__input-group">
+            <input class="login__input" 
+                   type="password" 
+                   [placeholder]=" 'Password' |translate " 
+                   formControlName="password">
+
+            <p *ngIf="isRequired('password')" class="login__input-error">{{'password required' | translate}}</p>
+            <p *ngIf="minLength('password')" class="login__input-error">{{'password must be at least 6 characters' | translate}}</p>
+
+          </div>
+        </div>
+
+        <div class="login__form-group">
+          <div class="login__check-group">
+
+            <div (click)="setActive()" class="login__input-check">
+              <input id="checkbox-signup" 
+                     class="login__checkbox"
+                     [ngClass]="{'login__checkbox--checked': active}"
+                     type="checkbox"
+                     formControlName="remember">
+                     
+              <label class="login__label-checkbox">{{ 'Remember me' | translate }}</label>
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="login__check-svg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+              </svg>
+            </div>
+
+            <a class="login__forgot-pwd">
+              <svg class="login__lock-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10 0v-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8z"/></svg>
+              <span>{{'Forgot pwd?' | translate }}</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="login__form-group login__form-group--submit">
+          <button [disabled]="loginForm.invalid" type="submit" class="login__submit-btn">{{ 'LOG IN' | translate }}</button>
+        </div>
+
+        <div class="login__form-group">
+          <div class="login__have-account">
+            <span class="login__have-account-span">{{"Don't have an account?" | translate}}</span>
+            <a [routerLink]="['/register']" class="login__link-signup">
+              {{'Sign Up' | translate }}
+            </a>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>

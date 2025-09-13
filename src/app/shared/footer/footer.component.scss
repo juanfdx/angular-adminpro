@@ -1,0 +1,20 @@
+@import 'mixins';
+
+/* ----- FOOTER ----- */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 17px 15px;
+  font-weight: 300;
+  color: #67757c;
+  border-top: 1px solid rgba(120, 130, 140, 0.13);
+  background: #ffffff;
+  
+  &--center {
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,180 @@
+<aside appClickInside 
+       [style]="{'backgroundColor' : theme.sidebar}"
+       class="sidebar" 
+       [ngClass]="{'sidebar--active': active, 
+                   'sidebar--inactive': !active,
+                   'sidebar--side': sideMenu >= 0}">
+  
+  <div class="sidebar__scroll">
+    <nav class="sidebar__nav">
+      <ul class="sidebar__ul">
+
+        <li (mouseover)="showSideMenu(0)" 
+            (mouseout)="hideSideMenu()" 
+            class="sidebar__li">
+
+          <a (click)="setPosition(0)" 
+             class="sidebar__link"
+             [ngClass]="{'sidebar__link--active': position === 0,
+                         'sidebar__link--show': active,
+                         'sidebar__link--hide': !active,
+                         'sidebar__link--side': sideMenu === 0}">
+
+            <img class="sidebar__img" [src]="user.image" [alt]="'User photo'">
+
+            <span class="sidebar__span" 
+                  [ngClass]="{'sidebar__span--show': active, 'sidebar__span--hide': !active}">
+              {{user.name}} {{user.lastName}}
+            </span>
+
+            <svg class="sidebar__svg" 
+                 [ngClass]="{'sidebar__svg--active': position === 0, 'sidebar__svg--show': active, 'sidebar__svg--hide': !active}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+
+            <!-- ul absolute -->
+            <ul class="sidebar__ul-profile-absolute" 
+                [ngClass]="{'sidebar__ul-profile-absolute--show': sideMenu === 0}">
+
+                <span class="sidebar__span-absolute">
+                  {{user.name}} {{user.lastName}}
+                </span>
+
+                <li class="sidebar__li-profile">
+                  <a class="sidebar__profile-link"
+                     [routerLink]="['profile']"
+                     [routerLinkActive]="'sidebar__profile-link--active'">
+                     {{ 'profile' | translate }}
+                  </a>
+                </li>
+
+                <li class="sidebar__li-profile sidebar__li-profile">
+                  <a class="sidebar__profile-link" 
+                     [routerLink]="['account-settings']"
+                     [routerLinkActive]="'sidebar__profile-link--active'" 
+                     [routerLinkActiveOptions]="{exact : true}">
+                     {{ 'accountSetting' | translate }}
+                  </a>
+                </li>
+
+                <li class="sidebar__li-profile sidebar__li-profile--logout">
+                  <a (click)="logout()" class="sidebar__profile-link">{{ 'logout' |translate }}</a>
+                </li>
+            </ul>
+            <!-- end ul absolute -->
+          </a>
+
+          <ul class="sidebar__ul-profile" 
+              [ngClass]="{'sidebar__ul-profile--active': position === 0,
+                          'sidebar__ul-profile--show': active,
+                          'sidebar__ul-profile--hide': !active}">
+            <li class="sidebar__li-profile">
+              <a class="sidebar__profile-link"
+                [routerLink]="['profile']"
+                [routerLinkActive]="'sidebar__profile-link--active'">
+                {{ 'profile' | translate }}
+              </a>
+            </li>
+
+            <li class="sidebar__li-profile">
+              <a class="sidebar__profile-link" 
+                 [routerLink]="['account-settings']"
+                 [routerLinkActive]="'sidebar__profile-link--active'" 
+                 [routerLinkActiveOptions]="{exact : true}">
+                 {{ 'accountSetting' | translate }}
+              </a>
+            </li>
+
+            <li class="sidebar__li-profile sidebar__li-profile--logout">
+              <a (click)="logout()" 
+                 class="sidebar__profile-link">
+                 {{ 'logout' |translate }}
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+        <li class="sidebar__nav-divider"></li>
+
+        <li *ngFor="let item of sidebarMenu" 
+            (mouseover)="showSideMenu(item.id)" 
+            (mouseout)="hideSideMenu()" 
+            class="sidebar__li">
+
+          <a (click)="setPosition(item.id)" 
+             class="sidebar__link"
+             [ngClass]="{'sidebar__link--active': position === item.id,
+                         'sidebar__link--show': active,
+                         'sidebar__link--hide': !active,
+                         'sidebar__link--side': sideMenu === item.id}">
+
+            <div class="sidebar__svg-container"
+                 [ngClass]="{'sidebar__svg-container--show': active, 
+                             'sidebar__svg-container--hide': !active}">
+
+              <app-sidebar-icon [icon]="item.icon"></app-sidebar-icon>
+
+            </div>
+
+            <span class="sidebar__span" 
+                  [ngClass]="{'sidebar__span--show': active, 'sidebar__span--hide': !active}">
+                  {{ item.title | translate}} 
+            </span>
+
+            <span [style]="{'backgroundColor' : theme.header}"
+                  class="sidebar__span-quantity"
+                  [ngClass]="{'sidebar__span-quantity--show': active, 
+                              'sidebar__span-quantity--hide': !active}">
+              {{ item.submenu.length }}
+            </span>
+
+            <svg class="sidebar__svg" 
+                 [ngClass]="{'sidebar__svg--active': position === item.id, 'sidebar__svg--show': active, 'sidebar__svg--hide': !active}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+
+            <!-- ul absolute -->
+            <ul class="sidebar__ul-profile-absolute" 
+                [ngClass]="{'sidebar__ul-profile-absolute--show': sideMenu === item.id}">
+
+                <span class="sidebar__span-absolute">
+                  {{ item.title | translate}} 
+                </span>
+
+                <li *ngFor="let subItem of item.submenu" class="sidebar__li-profile">
+                  <a class="sidebar__profile-link"
+                     [routerLink]="[subItem.url]" 
+                     [routerLinkActive]="'sidebar__profile-link--active'"
+                     [routerLinkActiveOptions]="{exact : true}">
+                     {{ subItem.title | translate}}
+                  </a>
+                </li>
+            </ul>
+            <!-- end ul absolute -->
+          </a>
+
+          <ul class="sidebar__ul-profile" 
+              [ngClass]="{'sidebar__ul-profile--active': position === item.id,
+                          'sidebar__ul-profile--show': active,
+                          'sidebar__ul-profile--hide': !active}">
+
+            <li *ngFor="let subItem of item.submenu" class="sidebar__li-profile">
+              <a class="sidebar__profile-link"
+                 [routerLink]="[subItem.url]" 
+                 [routerLinkActive]="'sidebar__profile-link--active'"
+                 [routerLinkActiveOptions]="{exact : true}">
+                 {{ subItem.title | translate}}
+              </a>
+            </li>
+            
+          </ul>
+
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+</aside>

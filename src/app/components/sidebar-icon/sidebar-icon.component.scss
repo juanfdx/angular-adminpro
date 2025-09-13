@@ -1,0 +1,12 @@
+/* 
+  -convertimos sus estilos de sidebar.component a globales 
+  -y este los toma del componente mediante 
+  -encapsulation: ViewEncapsulation.None  puesto en el decorador @Component
+*/
+
+
+// .sidebar__link-svg {
+//   width: 20px;
+//   min-width: 20px;
+//   height: 20px;
+// }

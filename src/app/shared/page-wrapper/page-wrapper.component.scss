@@ -1,0 +1,43 @@
+@import 'mixins';
+
+/* ----- PAGE WRAPPER ----- */
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 74px;
+  margin-left: 0;
+  padding-bottom: 60px;
+  background: #f4f6f9;
+
+  @media (min-width: 768px) {
+    margin-left: 70px;
+  }
+  
+  @media (min-width: 1170px) {
+    margin-left: 240px;
+  }
+
+  &--active {
+    @media (min-width: 1024px) {
+      margin-left: 240px;
+    }
+  }
+
+  &--inactive {
+    @media (min-width: 1024px) {
+      margin-left: 70px;
+    }
+  }
+
+  &__container {
+    width: 100%;
+    padding: 25px;
+
+    @media (max-width: 767px) {
+      padding: 25px 15px;
+    }
+  }
+
+}
+

@@ -1,0 +1,92 @@
+<div *ngIf="!loading" class="table">
+  
+  <div class="table__card">
+    <div class="table__card-body">
+
+      <div class="table__header-content">
+        <div class="table__header-text">
+          <h4 class="table__h4">{{ 'Hospitals' | translate }} ({{total}})</h4>
+          <h6 class="table__h6">{{ 'Registered hospitals' | translate }}</h6>
+        </div>
+        <button class="table__header-btn"
+                (click)="createHospital()">
+          {{ 'Create hospital' | translate }}
+        </button>
+      </div>
+
+      <table class="table__table-hospitals">
+        <thead>
+          <tr>
+            <th class="table__th table__th--center">{{ 'Photo' | translate }}</th>
+            <th class="table__th">{{ 'Name' | translate }}</th>
+     
+            <th class="table__th table__th--center">{{ 'Actions' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let hospital of hospitals">
+            <td class="table__td">
+              <img class="table__img" 
+                   [src]="hospital.image" 
+                   alt="Hospital picture"
+                   (click)="openModal(hospital)">
+            </td>
+
+            <td class="table__td">
+              <div class="table__input-wrapper">
+                <input class="table__input" 
+                       type="text"
+                       placeholder="Hospital name..."
+                       [(ngModel)]="hospital.name">
+              </div>
+            </td>
+
+            <td class="table__td">
+
+              <div class="table__actions-wrapper">
+                <a class="table__btn-delete"
+                    (click)="updateHospital(hospital)">
+                  <svg _ngcontent-itl-c64="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="table__save-svg"><path _ngcontent-itl-c64="" d="M13 3h2.996v5h-2.996v-5zm11 1v20h-24v-24h20l4 4zm-17 5h10v-7h-10v7zm15-4.171l-2.828-2.829h-.172v9h-14v-9h-3v20h20v-17.171z"></path>
+                  </svg>
+                </a>
+
+                <a class="table__btn-delete"
+                    (click)="deleteHospital(hospital)">
+                  <svg class="table__svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/>
+                  </svg>
+                </a>
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <!-- pagination -->
+      <div *ngIf="term.length === 0 " class="table__buttons-container">
+
+        <div class="table__page-buttons">
+          <button class="table__page-btn"
+                  (click)="pagination(-5)">
+            {{ 'Prev' | translate }}
+          </button>
+          <button class="table__page-btn"
+                  (click)="pagination(5)">
+            {{ 'Next' | translate }}
+          </button>
+        </div>
+
+        <div class="table__page-indicator">
+          <span class="table__page-number">{{currentPage}} - {{setTotalPages()}}</span>
+        </div>
+
+      </div>
+      <!-- end pagination -->
+
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,15 @@
+<div appClickInside
+     class="page-wrapper" 
+     [ngClass]="{'page-wrapper--active': active, 'page-wrapper--inactive': !active}">
+
+     <div class="page-wrapper__container">
+
+       <app-breadcrumbs></app-breadcrumbs>
+       
+       <router-outlet></router-outlet>
+       
+     </div>
+
+  <app-footer></app-footer>
+  
+</div>

@@ -1,0 +1,35 @@
+@import 'mixins';
+
+/* ----- DASHBOARD ----- */
+
+.dashboard {
+  margin: 40px 0 30px 0;
+  
+  @include flex(column, nowrap, center, center);
+  gap: 30px;
+  
+
+  @media (min-width: 600px) {
+    margin-top: 80px;
+    @include flex(row, nowrap, center, center);
+  }
+  
+  &__card {
+    width: 34%;
+    max-width: 300px;
+    min-width: 270px;
+    // padding: 0 15px;
+  }
+  
+  &__link {
+    cursor: pointer;
+  }
+  
+  &__img {
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    width: 100%;
+  }
+}
